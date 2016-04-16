@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv)
 {
-printf("Main projet bar\n")
+printf("Main projet bar\n");
 	return 0;
 }
 
