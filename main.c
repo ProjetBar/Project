@@ -9,7 +9,7 @@ SDL_Rect positionFond;
 positionFond.x = 0;
 positionFond.y = 0;
 
-
+//test
 SDL_Init(SDL_INIT_VIDEO);
 	ecran = SDL_SetVideoMode(984, 553, 32, SDL_HWSURFACE);
 SDL_WM_SetCaption("Chargement d'images en SDL", NULL);
@@ -23,3 +23,4 @@ SDL_FreeSurface(imageDeFond); /* On libère la surface */
 SDL_Quit();
 return EXIT_SUCCESS;
 }
+
