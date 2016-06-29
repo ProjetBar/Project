@@ -17,7 +17,6 @@ void init_SDL (void)
 	SDL_WM_SetCaption("Project Bar", NULL);
 	imageDeFond = SDL_LoadBMP("Bar.bmp");
 	Client = SDL_LoadBMP("client.bmp");
-	SDL_SetColorKey(Client,SDL_SRCCOLORKEY,SDL_MapRGB(Client->format, 0,0,0));
 //	imageClient = SDL_LoadBMP("Client.bmp");
 	anime(positionFond, ecran, imageDeFond,position_Client,Client);
 }
