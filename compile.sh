@@ -1,5 +1,4 @@
 #!/bin/bash
-[[-z $(which libsdl1.2-dev)]] && sudo apt-get install libsdl1.2-dev && echo "Installation SDL "
 
 if [ $# -eq0 ]
 then
@@ -7,6 +6,7 @@ then
 	exit 1
 
 else 
+	[[-z $(which libsdl1.2-dev)]] && sudo apt-get install libsdl1.2-dev && echo "Installation SDL... "
 	gcc main.c -lSDL -o $@
 	./$@
 
