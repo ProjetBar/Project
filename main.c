@@ -10,6 +10,7 @@ void init_SDL (void)
 	ecran = SDL_SetVideoMode(984, 553, 32, SDL_HWSURFACE);
 	SDL_WM_SetCaption("Project Bar", NULL);
 	imageDeFond = SDL_LoadBMP("Bar.bmp");
+	imageClient = SDL_LoadBMP("Client.bmp");
 	
 }
 
@@ -34,18 +35,28 @@ void anime(void)
 {
 	SDL_Surface *ecran = NULL, *imageDeFond = NULL;
 	SDL_Surface *Client[4] = NULL, *Barman[4] = NULL;
-
+	int avanceX = 1, avanceY = 1;
 
 	SDL_Rect position_Client; //position du client
 	SDL_Rect position_Barman;	// position du barman
 	SDL_Rect positionFond;
 	positionFond.x = 0;
 	positionFond.y = 0;
+	position_Client.x = 0;
+	position_Client.y = 0;
 
 	while (1)
 	{
 			/* On blitte par-dessus l'écran */
 		SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
+		SDL_BlitSurface(Client, NULL, ecran, &position_Client);
+		
+		/* a tester, deplacement du client */
+		if (avanceX) position_Client.x ++;
+		else position_Client--;
+		if (avanceY) position_Client.y ++;
+		else position_Client.y--;
+		
 		//SDL_BlitSurface(Client,)
 
 		SDL_Flip(ecran);
