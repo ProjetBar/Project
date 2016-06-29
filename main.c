@@ -13,7 +13,7 @@ void init_SDL (void)
 	
 }
 
-void interupt(void)
+void Close_SDL(void)
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) 
@@ -46,10 +46,10 @@ void anime(void)
 	{
 			/* On blitte par-dessus l'écran */
 		SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
-		SDL_BlitSurface(Client,)
+		//SDL_BlitSurface(Client,)
 
 		SDL_Flip(ecran);
-		interupt();
+		Close_SDL();
 		
 	}
 
