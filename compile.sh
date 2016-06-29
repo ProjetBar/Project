@@ -1,5 +1,7 @@
 #!/bin/bash
-if [ $@ -eq0 ]
+[[-z $(which libsdl1.2-dev)]] && sudo apt-get install libsdl1.2-dev && echo "Installation SDL "
+
+if [ $# -eq0 ]
 then
 	echo "Erreur, argument manquant"
 	exit 1
