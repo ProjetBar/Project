@@ -4,25 +4,26 @@
 #include <SDL/SDL.h>
 #include "bar.h"
 
-void anime(SDL_Rect positionFond, SDL_Surface *ecran, SDL_Surface *imageDeFond)
+void anime(SDL_Rect positionFond, SDL_Surface *ecran, SDL_Surface *imageDeFond,SDL_Rect position_Client,SDL_Surface *Client)
 {
 	
 	positionFond.x = 0;
 	positionFond.y = 0;
-
+	position_Client.x = 800;
+	position_Client.y = 553;
+	int avanceX = 1, avanceY = 1;
 	while (1)
 	{
 			/* On blitte par-dessus l'écran */
 		SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
+		SDL_BlitSurface(Client, NULL, ecran, &position_Client);
 		
-		//SDL_BlitSurface(Client, NULL, ecran, &position_Client);
+		/* a tester, deplacement du client  */
 		
-		/* a tester, deplacement du client 
-		if (avanceX) position_Client.x ++;
-		else position_Client--;
-		if (avanceY) position_Client.y ++;
-		else position_Client.y--;
-		*/
+		if (avanceY) position_Client.y --;
+		if (position_Client.y == 300) position_Client.y == 300;
+			
+		
 		//SDL_BlitSurface(Client,)
 
 		SDL_Flip(ecran);

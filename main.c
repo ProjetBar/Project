@@ -8,7 +8,7 @@ void init_SDL (void)
 {
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_Surface *ecran = NULL, *imageDeFond = NULL;
-	//SDL_Surface *Client[4] = NULL *Barman[4] = NULL;
+	SDL_Surface *Client = NULL;
 	SDL_Rect position_Client; //position du client
 	SDL_Rect position_Barman;	// position du barman
 	SDL_Rect positionFond;
@@ -16,14 +16,15 @@ void init_SDL (void)
 	int avanceX = 1, avanceY = 1;
 	SDL_WM_SetCaption("Project Bar", NULL);
 	imageDeFond = SDL_LoadBMP("Bar.bmp");
+	Client = SDL_LoadBMP("client.bmp");
+	SDL_SetColorKey(Client,SDL_SRCCOLORKEY,SDL_MapRGB(Client->format, 0,0,0));
 //	imageClient = SDL_LoadBMP("Client.bmp");
-	anime(positionFond, ecran, imageDeFond);
+	anime(positionFond, ecran, imageDeFond,position_Client,Client);
 }
 
 
 int main(int argc, char *argv[])
 {
 	init_SDL();
-	
 return 0;
 }
