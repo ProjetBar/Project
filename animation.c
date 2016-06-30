@@ -28,12 +28,12 @@ void anime(SDL_Rect positionFond, SDL_Surface *ecran, SDL_Surface *imageDeFond,S
 		//SDL_BlitSurface(Client,)
 
 		SDL_Flip(ecran);
-		Close_SDL(imageDeFond);
+		Event_SDL(imageDeFond);
 		
 	}
 }
 
-void Close_SDL(SDL_Surface *imageDeFond)
+void Event_SDL(SDL_Surface *imageDeFond)
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) 
