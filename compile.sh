@@ -6,7 +6,7 @@ then
 	exit 1
 
 else 
-	[[-z $(which libsdl1.2-dev)]] && sudo apt-get install libsdl1.2-dev && echo "Installation SDL... "
+	[[-z $(which libsdl1.2-dev)]] && sudo apt-get install libsdl1.2-dev && echo "Installation SDL...\n"
 	gcc main.c -lSDL -o $@
 	./$@
 
