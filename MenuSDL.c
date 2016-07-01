@@ -15,7 +15,7 @@ SDL_Event event;
     positionBiere.y = 0;
 
     SDL_Init(SDL_INIT_VIDEO);
-
+	SDL_ShowCursor(SDL_DISABLE);
     ecran_menu = SDL_SetVideoMode(960, 550, 32, SDL_HWSURFACE);
     SDL_WM_SetCaption("Projet Bar Menu", NULL);
 
