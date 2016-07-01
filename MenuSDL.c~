@@ -6,25 +6,44 @@
 
 void Menu (void)
 {
-    SDL_Surface *ecran = NULL, *imageDeFond = NULL;
-    SDL_Rect positionFond;
-
-    positionFond.x = 0;
-    positionFond.y = 0;
+    SDL_Surface *ecran_menu = NULL, *image_Menu= NULL, *image_biere = NULL;
+    SDL_Rect positionMenu,positionBiere;
+SDL_Event event;
+    positionMenu.x = 0;
+    positionMenu.y = 0;
+    positionBiere.x = 0;
+    positionBiere.y = 0;
 
     SDL_Init(SDL_INIT_VIDEO);
 
-    ecran = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE);
-    SDL_WM_SetCaption("Chargement d'images en SDL", NULL);
+    ecran_menu = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE);
+    SDL_WM_SetCaption("Projet Bar Menu", NULL);
 
-    /* Chargement d'une image Bitmap dans une surface */
-    imageDeFond = SDL_LoadBMP("MenuBar.bmp");
-    /* On blitte par-dessus l'écran */
-    SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
+    image_Menu = SDL_LoadBMP("MenuBar.bmp");
+    image_biere = SDL_LoadBMP("biere.bmp");
+	while (1)
+    {
+        SDL_WaitEvent(&event);
+        switch(event.type)
+        {
+            case SDL_QUIT:
+                SDL_Quit();
+   		SDL_FreeSurface(image_biere);
+		exit(0);
+                break;
+            case SDL_MOUSEMOTION:
+		positionBiere.x = event.motion.x;
+           	 positionBiere.y = event.motion.y;
+		break;
+         }
+        SDL_BlitSurface(image_Menu, NULL, ecran_menu, &positionMenu);        
+ 	SDL_FillRect(ecran_menu, NULL, SDL_MapRGB(ecran_menu->format, 255, 255, 255));
+        SDL_BlitSurface(image_biere, NULL, ecran_menu, &positionBiere);
+        SDL_Flip(ecran_menu);
 
-    SDL_Flip(ecran);
-    pause();
+    }
 
-    SDL_FreeSurface(imageDeFond); /* On libère la surface */
-    SDL_Quit();
+       
 }
+
+
