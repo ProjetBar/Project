@@ -20,7 +20,7 @@ SDL_Event event;
     SDL_WM_SetCaption("Projet Bar Menu", NULL);
 
     image_Menu = SDL_LoadBMP("MenuBar.bmp");
-    image_biere = SDL_LoadBMP("biere.bmp");
+    image_biere = SDL_LoadBMP("bouteille.bmp");
 	while (1)
     {
         SDL_WaitEvent(&event);
@@ -35,9 +35,19 @@ SDL_Event event;
 		positionBiere.x = event.motion.x;
            	 positionBiere.y = event.motion.y;
 		break;
+
+	    case SDL_MOUSEBUTTONUP:
+        	if (event.motion.x >= 220 && event.motion.x <= 500 && event.motion.y >=200 && event.motion.x <= 500 )
+		{
+			if (event.button.button == SDL_BUTTON_LEFT)
+			{
+				init_SDL();
+			}	
+		}
+	   
          }
                 
-	SDL_SetColorKey(image_biere,SDL_SRCCOLORKEY,SDL_MapRGB(image_biere->format, 255,255,255));
+	SDL_SetColorKey(image_biere,SDL_SRCCOLORKEY,SDL_MapRGB(image_biere->format, 0,0,0));
 	SDL_BlitSurface(image_Menu, NULL, ecran_menu, &positionMenu);
         SDL_BlitSurface(image_biere, NULL, ecran_menu, &positionBiere);
         SDL_Flip(ecran_menu);
