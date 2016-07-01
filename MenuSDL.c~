@@ -23,6 +23,7 @@ void Menu (void)
     SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
 
     SDL_Flip(ecran);
+    pause();
 
     SDL_FreeSurface(imageDeFond); /* On libère la surface */
     SDL_Quit();

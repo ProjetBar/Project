@@ -23,7 +23,8 @@ void init_SDL (void)
 
 
 int main(int argc, char *argv[])
-{
+{	
+	Menu();
 	init_SDL();
 return 0;
 }

@@ -15,8 +15,10 @@ void anime(SDL_Rect positionFond, SDL_Surface *ecran, SDL_Surface *imageDeFond,S
 	while (1)
 	{
 			/* On blitte par-dessus l'écran */
-
-
+		Event_SDL(imageDeFond,position_Client);
+		SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
+		SDL_SetColorKey(Client,SDL_SRCCOLORKEY,SDL_MapRGB(Client->format, 255,255,255));
+		SDL_BlitSurface(Client, NULL, ecran, &position_Client);
 		
 		/* a tester, deplacement du client  */
 		
@@ -25,10 +27,7 @@ void anime(SDL_Rect positionFond, SDL_Surface *ecran, SDL_Surface *imageDeFond,S
 			position_Client.y --;
 			if (position_Client.y == 300) position_Client.y == 300;
 		}
-		SDL_BlitSurface(imageDeFond, NULL, ecran, &positionFond);
-		SDL_SetColorKey(Client,SDL_SRCCOLORKEY,SDL_MapRGB(Client->format, 255,255,255));
-		SDL_BlitSurface(Client, NULL, ecran, &position_Client);
-		Event_SDL(imageDeFond,position_Client);
+
 		SDL_Flip(ecran);
 		
 		
