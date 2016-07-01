@@ -16,7 +16,7 @@ SDL_Event event;
 
     SDL_Init(SDL_INIT_VIDEO);
 
-    ecran_menu = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE);
+    ecran_menu = SDL_SetVideoMode(1200, 695, 32, SDL_HWSURFACE);
     SDL_WM_SetCaption("Projet Bar Menu", NULL);
 
     image_Menu = SDL_LoadBMP("MenuBar.bmp");
@@ -36,8 +36,9 @@ SDL_Event event;
            	 positionBiere.y = event.motion.y;
 		break;
          }
-        SDL_BlitSurface(image_Menu, NULL, ecran_menu, &positionMenu);        
- 	SDL_FillRect(ecran_menu, NULL, SDL_MapRGB(ecran_menu->format, 255, 255, 255));
+                
+	SDL_SetColorKey(image_biere,SDL_SRCCOLORKEY,SDL_MapRGB(image_biere->format, 255,255,255));
+	SDL_BlitSurface(image_Menu, NULL, ecran_menu, &positionMenu);
         SDL_BlitSurface(image_biere, NULL, ecran_menu, &positionBiere);
         SDL_Flip(ecran_menu);
 
