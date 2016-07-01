@@ -16,7 +16,7 @@ SDL_Event event;
 
     SDL_Init(SDL_INIT_VIDEO);
 
-    ecran_menu = SDL_SetVideoMode(1200, 695, 32, SDL_HWSURFACE);
+    ecran_menu = SDL_SetVideoMode(960, 550, 32, SDL_HWSURFACE);
     SDL_WM_SetCaption("Projet Bar Menu", NULL);
 
     image_Menu = SDL_LoadBMP("MenuBar.bmp");
